@@ -2,22 +2,22 @@
 
 source "bin/source.sh"
 
-submodule_path="_app-submodule"
+submodule_path="app-submodule"
 
-git submodule add "https://github.com/labscriptdev/app.git" _app-submodule
+git submodule add "https://github.com/labscriptdev/app.git" $submodule_path
 
 for sync_file in "${sync_files[@]}"; do
-  echo "copy $sync_file"
-  echo "to $submodule_path/$sync_file"
   echo ""
+  echo "copy: $sync_file"
+  echo "to    $submodule_path/$sync_file"
   cp $sync_file "$submodule_path/$sync_file"
 done
 
-cd submodule_path
+cd $submodule_path
 git add .
-git commit -m $1
-git push origin HEAD
+git commit -m "$1"
+git push
 
-git submodule deinit -f _app-submodule
-rm -rf .git/modules/_app-submodule
-git rm -f _app-submodule
+git submodule deinit -f $submodule_path
+rm -rf ".git/modules/$submodule_path"
+git rm -f $submodule_path

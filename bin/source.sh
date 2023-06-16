@@ -24,6 +24,7 @@ sync_files=(
 
   # Laravel
   "laravel10/app/Console/Commands/AppInstallCommand.php"
+  "laravel10/app/Console/Commands/AppTestCommand.php"
   "laravel10/app/Http/Controllers/AppController.php"
   "laravel10/app/Http/Controllers/AppFileController.php"
   "laravel10/app/Http/Controllers/AppMailController.php"
