@@ -62,7 +62,7 @@ sync_files=(
   "nuxt3/composables/useApp.js"
   "nuxt3/composables/useAxios.js"
   "nuxt3/composables/useValidate.js"
-  "nuxt3/composables/useWebsockets.js"
+  "nuxt3/composables/useWebsocket.js"
   "nuxt3/layouts/admin.vue"
   "nuxt3/plugins/0.axios.client.js"
   "nuxt3/plugins/1.vuetify.client.js"

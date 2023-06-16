@@ -150,6 +150,9 @@
   
   import useApp from '@/composables/useApp';
   const app = useApp();
+  
+  import useWebsocket from '@/composables/useWebsocket';
+  const websocket = useWebsocket();
 
   const route = useRoute();
 
