@@ -4,20 +4,36 @@ source "bin/source.sh"
 
 submodule_path="app-submodule"
 
-git submodule add "https://github.com/labscriptdev/app.git" $submodule_path
+if [ -d "$submodule_path" ]; then
+  # git rm -f --cached $submodule_path
+  # rm -rf $submodule_path
+  # git commit -m "Remove $submodule_path submodule"
 
-for sync_file in "${sync_files[@]}"; do
-  echo ""
-  echo "copy: $sync_file"
-  echo "to    $submodule_path/$sync_file"
-  cp $sync_file "$submodule_path/$sync_file"
-done
+  git submodule deinit -f $submodule_path
+  rm -rf ".git/modules/$submodule_path"
+  git rm -f $submodule_path
 
-cd $submodule_path
-git add .
-git commit -m "$1"
-git push
+else
+  git submodule add "https://github.com/labscriptdev/app.git" $submodule_path
 
-git submodule deinit -f $submodule_path
-rm -rf ".git/modules/$submodule_path"
-git rm -f $submodule_path
+  for sync_file in "${sync_files[@]}"; do
+    copy_from=$sync_file
+    copy_to="$submodule_path/$sync_file"
+    copy_to_folder=$(dirname "$copy_to")
+
+    if [[ ! -d $copy_to_folder ]]; then
+      mkdir -p $copy_to_folder
+    fi
+
+    echo ""
+    echo "from:     $copy_from"
+    echo "to        $copy_to"
+    echo "to folder $copy_to_folder"
+    cp $copy_from $copy_to
+  done
+
+  cd $submodule_path
+  git add .
+  git commit -m "$1"
+  git push
+fi
