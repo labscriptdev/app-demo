@@ -2,18 +2,22 @@
 
 source "bin/source.sh"
 
+submodule_path="_app-submodule"
+
 git submodule add "https://github.com/labscriptdev/app.git" _app-submodule
-# git submodule deinit -f _app-submodule
-# rm -rf .git/modules/_app-submodule
-# git rm -f _app-submodule
 
-# for sync_file in "${sync_files[@]}"; do
-#   echo $file_url
-# done
+for sync_file in "${sync_files[@]}"; do
+  echo "copy $sync_file"
+  echo "to $submodule_path/$sync_file"
+  echo ""
+  cp $sync_file "$submodule_path/$sync_file"
+done
 
-# Removendo submodule
-: '
-git submodule deinit -f _folder
-rm -rf .git/modules/_folder
-git rm -f _folder
-'
+cd submodule_path
+git add .
+git commit -m $1
+git push origin HEAD
+
+git submodule deinit -f _app-submodule
+rm -rf .git/modules/_app-submodule
+git rm -f _app-submodule
