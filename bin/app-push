@@ -13,6 +13,7 @@ if [ -d "$submodule_path" ]; then
   rm -rf ".git/modules/$submodule_path"
   # git rm -f $submodule_path
   git rm -r --cached $submodule_path
+  git rm -r --cached $submodule_path
 
 else
   git submodule add "https://github.com/labscriptdev/app.git" $submodule_path
