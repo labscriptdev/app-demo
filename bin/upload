@@ -24,7 +24,7 @@ done
 # Commit & push
 cd $submodule_path
 git add .
-git commit -m "$1"
+git commit -m "Sycn with ${APP_NAME}"
 git push
 
 # Remove submodule
