@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source "bin/source.sh"
+
+git submodule add "https://github.com/labscriptdev/app.git" _app-submodule
+# git submodule deinit -f _app-submodule
+# rm -rf .git/modules/_app-submodule
+# git rm -f _app-submodule
+
+# for sync_file in "${sync_files[@]}"; do
+#   echo $file_url
+# done
+
+# Removendo submodule
+: '
+git submodule deinit -f _folder
+rm -rf .git/modules/_folder
+git rm -f _folder
+'
