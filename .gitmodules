@@ -1,3 +1,0 @@
-[submodule "_app-submodule"]
-	path = _app-submodule
-	url = https://github.com/labscriptdev/app.git
