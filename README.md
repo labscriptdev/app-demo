@@ -20,6 +20,18 @@ or use short command
 yarn build
 ```
 
+Bash commands
+```bash
+# Get atualizations
+bash bin/app-pull
+
+# Send atualizations
+bash bin/app-push
+
+# Start server
+bash bin/dev
+```
+
 ## TODO
 - ⬛ Ports in settings .env
 - ⬛ Nuxt 3
