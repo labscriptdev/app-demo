@@ -12,8 +12,9 @@ sync_files=(
   "adminer/index.php"
 
   # Bin
-  "bin/dev"
+  "bin/app-pull"
   "bin/app-push"
+  "bin/dev"
   
   # Docker
   "docker/adminer/Dockerfile"
