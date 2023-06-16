@@ -13,6 +13,7 @@ sync_files=(
 
   # Bin
   "bin/dev"
+  "bin/app-push"
   
   # Docker
   "docker/adminer/Dockerfile"
