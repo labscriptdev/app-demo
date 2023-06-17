@@ -47,6 +47,7 @@ sync_files=(
   "laravel10/app/Models/AppUser.php"
   "laravel10/app/Models/AppUserGroup.php"
   "laravel10/app/Models/AppUserNotification.php"
+  "laravel10/database/schema.php"
 
   # Nuxt
   "nuxt3/components/app/auth/login.vue"
