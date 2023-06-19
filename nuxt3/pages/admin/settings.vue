@@ -255,7 +255,6 @@
     autoSubmit: true,
     onSuccess: ({ data }) => {
       save.value.data = data.settings;
-      app.init(true);
     },
   });
 
