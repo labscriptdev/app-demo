@@ -53,8 +53,8 @@ export default (params={}) => {
           axiosParams.data = _call(this.data);
           params.onBeforeRequest(axiosParams);
           const { data } = await axios(axiosParams);
-          params.onSuccess({ data });
           this.success = data;
+          params.onSuccess({ data });
         } catch(err) {
           this.error.setData(err.response ? err.response.data : { message: err.message });
         }
